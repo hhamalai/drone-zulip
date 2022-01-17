@@ -1,0 +1,20 @@
+name: Build Image CI
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: "Build: checkout"
+      uses: actions/checkout@v2
+    - name: 'Build: build image'
+      uses: docker/build-push-action@v1
+      with:
+        registry: ghcr.io
+        username: "hhamalai"
+        password: ${{ secrets.PAT }}
+        repository: hhamalai/drone-zulip
+        tags: latest
