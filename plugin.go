@@ -15,15 +15,12 @@ import (
 const TYPE_STREAM = "stream"
 const TYPE_PRIVATE = "private"
 
-const BuildStatusTemplate = `***{{.Emoji}} PIPELINE Report {{.Emoji}}***
+const BuildStatusTemplate = `***{{.Emoji}} PIPELINE Report: {{.Status}} {{.Emoji}}***
 ***Pipeline:*** {{.Pipeline}}
-***Status:*** {{.Status}}
-***Commit:*** {{.Commit}}
-***Repository:*** {{.Repository}}
-***Branch:*** {{.Branch}}
+***Repository / Branch / Commit:*** {{.Repository}} / {{.Branch}} / {{.Commit}}
 ***By:*** {{.By}}
-***Message:*** {{.Message}}
 ***Link:*** {{.Link}}
+***Message:*** {{.Message}}
 `
 const respFormat = `Webhook
   URL: %s
