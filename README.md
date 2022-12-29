@@ -4,7 +4,7 @@ Drone plugin to publish pipeline events to Zulip chat
 
 Configure drone project secret with Zulip bot apikey ```zulip_bot_apikey``` from Zulip UI.
 
-###Send notifications to Zulip stream
+### Send notifications to Zulip stream
 ```
 steps:
 ...
@@ -20,7 +20,7 @@ steps:
       from_secret: zulip_bot_apikey
 ```
 
-###Send notifications to Zulip user
+### Send notifications to Zulip user
 ```
 steps:
 ...
