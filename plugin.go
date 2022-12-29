@@ -107,11 +107,16 @@ func (p *Plugin) Exec() error {
 		panic(errors.New(fmt.Sprintf("Type must be either %s or %s", TYPE_STREAM, TYPE_PRIVATE)))
 	}
 
-	if p.Stage.Status == "" {
+	if p.Stage.Status == "failure" || p.Build.Status == "failure" {
+		notification.Status = "failure"
+	} else if p.Stage.Status != "" {
+		notification.Status = p.Stage.Status
+	} else if p.Build.Status != "" {
 		notification.Status = p.Build.Status
 	} else {
-		notification.Status = p.Stage.Status
+		notification.Status = "unknown"
 	}
+
 	if notification.Status == "success" {
 		notification.Emoji = ":check:"
 	} else {
